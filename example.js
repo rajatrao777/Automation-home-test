@@ -72,14 +72,14 @@ async function run() {
     // }
     const page11 = await browser.newPage();
     await page11.setViewport({ width: 1366, height: 768 });
-    await page11.goto(arr1[2]);
+    await page11.goto(arr1[8]);
     await page11.waitFor(5000);
     // //   await page11.click('button[id=accept_incident]'); 
     await page11.waitFor(5000);
     // const form = await page11.$('button[id=incident.u_impacted_location_unlock');
     // console.log(form);
     // await form.evaluate(form => form.click());
-
+/*   */ 
     await page11.evaluate(() => {
         // var b15 = [];
         var button15 = document.querySelectorAll("span.icon.icon-locked");
@@ -90,13 +90,15 @@ async function run() {
 
         // return button15;
     });
+    
     await page11.waitFor(10000);
     await page11.evaluate(() => {
         var f3 = document.querySelectorAll(".form-control");
         f3[32].click();
     });
+    
     await page11.waitFor(10000);
-    await page11.keyboard.type("Slovakia - Lozorno");
+    await page11.keyboard.type("Sweden - Boras");
     await page11.keyboard.press("Enter");
     // await page.select('#incident.category', 'Application');
     await page11.evaluate(() => {
@@ -112,6 +114,7 @@ async function run() {
         f5[0].click();
     });
     await page11.waitFor(5000);
+    
     await page11.evaluate(() => {
         var f6 = document.querySelectorAll(".form-control");
         // f4[9].click();
@@ -119,21 +122,43 @@ async function run() {
          f6[10].click();
          f6[10].setValue("Request");
     });
+    
     await page11.evaluate(() => {
         var f7 = document.querySelectorAll(".form-control");
         // f4[9].click();
         // f4[9].setValue("Application");
          f7[39].click();
-         
+         f7[39].setValue("//Ignore");
     });
+    
     await page11.waitFor(5000);
-    await page11.keyboard.type("//Processed");
+    // await page11.keyboard.type("//Processed");
     await page11.evaluate(() => {
         var f8 = document.querySelectorAll(".form-control");
         // f4[9].click();
         // f4[9].setValue("Application");
          f8[40].click();
-         f8[10].setValue("Resolve");
+         f8[40].setValue("resolve");
+         
+    });
+    // await page11.keyboard.press("Enter");
+    await page11.evaluate(() => {
+        var f9 = document.querySelectorAll("button.form_action_button.header.action_context.btn.btn-default");
+        f9[5].click();
+    });
+    await page11.waitFor(5000);
+    await page11.evaluate(() => {
+        var f10 = document.querySelectorAll(".form-control");
+        // f4[9].click();
+        // f4[9].setValue("Application");
+         f10[41].click();
+         f10[41].setValue("workaround");
+         
+    });
+    await page11.waitFor(5000);
+    await page11.evaluate(() => {
+        var f11 = document.querySelectorAll("button.form_action_button.header.action_context.btn.btn-default");
+        f11[0].click();
     });
     // console.log(b1);
     // await b1.click();
@@ -175,6 +200,7 @@ async function run() {
     // await page.screenshot({ path: 'imserve.png' });
     /// f[0].innerHTML.indexOf("CDON-AB")
     // browser.close();
+    
 }
 
 run();
