@@ -57,13 +57,13 @@ async function run() {
         // console.log("1",document.querySelectorAll("a.linked.formlink"))
         // console.log("2",s[2].href)
         // console.log(s);
-        for (var i = 0; i < 11; i++) {
+        for (var i = 0; i < 5; i++) {
             arr[i] = s[i].href;
         }
         // console.log("inside",arr[i]);  
         return arr;
     });
-    const page1 = [];
+    var pageflag=0;
     // for(var i=0;i<11;i++){
 
     //   page1[i] = await browser.newPage();
@@ -72,14 +72,37 @@ async function run() {
     // }
     const page11 = await browser.newPage();
     await page11.setViewport({ width: 1366, height: 768 });
-    await page11.goto(arr1[8]);
+    await page11.goto(arr1[3]);
     await page11.waitFor(5000);
     // //   await page11.click('button[id=accept_incident]'); 
     await page11.waitFor(5000);
     // const form = await page11.$('button[id=incident.u_impacted_location_unlock');
     // console.log(form);
     // await form.evaluate(form => form.click());
-/*   */ 
+    pageflag=await page11.evaluate(() => {
+        var f3 = document.querySelectorAll(".form-control.disabled");
+        if(f3[4].value=="Middleware.SI.EMEA.IMM.SUP"){
+            console.log("success");
+            pageflag=1;
+        }
+        else{
+            console.log("failure");
+            pageflag=0;
+        }
+        return pageflag;
+    });
+    console.log(pageflag);
+    if(pageflag==1){
+        await page11.evaluate(() => {
+            var f4 = document.querySelectorAll("span.sn-widget-textblock-body.sn-widget-textblock-body_formatted");
+            console.log(f4[0].innerHTML.indexOf("xml_XPP-SE100_TELE2_COURIERSTATUS_1512068_"));
+        });
+    }
+    else{
+        console.log("failure1");
+    }
+/*   
+
     await page11.evaluate(() => {
         // var b15 = [];
         var button15 = document.querySelectorAll("span.icon.icon-locked");
@@ -197,10 +220,10 @@ async function run() {
     //  }
     //const f = document.querySelectorAll("span.sn-widget-textblock-body.sn-widget-textblock-body_formatted");
     //await page.setViewport({width:1280,height:800});  
-    // await page.screenshot({ path: 'imserve.png' });
+    // await page.screenshot({ path: 'imserve.png' });  
     /// f[0].innerHTML.indexOf("CDON-AB")
     // browser.close();
-    
+    */ 
 }
 
 run();
