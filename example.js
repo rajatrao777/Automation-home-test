@@ -36,7 +36,7 @@ async function run() {
     // await page.waitForNavigation();
     //  const queue = "div[id='c13406700a0a3c1201579d1d0bc87b7f']";
     //  await page.evaluate((queue)=>{
-    await page.waitFor(10000);
+    await page.waitFor(4000);
 
     // document.querySelectorAll("a.linked.formlink");
     // await page.waitForSelector('a[href$="short_description"]');  
@@ -58,13 +58,13 @@ async function run() {
         // console.log("1",document.querySelectorAll("a.linked.formlink"))
         // console.log("2",s[2].href)
         // console.log(s);
-        for (var i = 4; i < 20; i++) {
+        for (var i = 0; i < 4; i++) {
             arr[i] = s[i].href;
         }
         // console.log("inside",arr[i]);  
         return arr;
     });
-    for (var j = 4; j < 20; j++) {
+    for (var j = 0; j < 4; j++) {
         var pageflag = 0;
         // for(var i=0;i<11;i++){
 
@@ -76,9 +76,9 @@ async function run() {
         const page11 = await browser.newPage();
         await page11.setViewport({ width: 1000, height: 768 });
         await page11.goto(arr1[j]);
-        await page11.waitFor(5000);
+        await page11.waitFor(4000);
         // //   await page11.click('button[id=accept_incident]'); 
-        await page11.waitFor(5000);
+        //await page11.waitFor(5000);
         // const form = await page11.$('button[id=incident.u_impacted_location_unlock');
         // console.log(form);
         // await form.evaluate(form => form.click());
@@ -105,17 +105,21 @@ async function run() {
                 var arr4 = [];
                 var f3 = document.querySelectorAll("span.sn-widget-textblock-body.sn-widget-textblock-body_formatted");
                 console.log("pohcha");
-                if (f3[0].innerHTML.indexOf("genxml_SI_EURONICS_PRICELIST_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_ADVANCEAS_CUSTOMERINFO_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_ELKJOP1-NO_PRICELIST_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_DKCUST_CUSTOMERINFO_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_TELERING_CUSTOMERINFO_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_EXPERTNO_CUSTOMERINFO_") > 0) {
+                if (f3[0].innerHTML.indexOf("genxml_SI_EURONICS_PRICELIST_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_ADVANCEAS_CUSTOMERINFO_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_ELKJOP1-NO_PRICELIST_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_DKCUST_CUSTOMERINFO_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_TELERING_CUSTOMERINFO_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_EXPERTNO_CUSTOMERINFO_") > 0 ||f3[0].innerHTML.indexOf("genxml_SI_EXPERTFI_CUSTOMERINFO_") > 0) {
                     kidar = "Sweden - Boras";
                     solution = "//Restarted";
                 }
-                else if (f3[0].innerHTML.indexOf("xml_SEPROD_TELE2_COLINERESERVED1_") > 0 || f3[0].innerHTML.indexOf("xml_XPP-SE100_TELE2_COURIERSTATUS_") > 0 || f3[0].innerHTML.indexOf("xml_SEPROD_TELE2_ORDRSP_") > 0) {
+                else if (f3[0].innerHTML.indexOf("xml_SEPROD_TELE2_COLINERESERVED1_") > 0 || f3[0].innerHTML.indexOf("xml_XPP-SE100_TELE2_COURIERSTATUS_") > 0 || f3[0].innerHTML.indexOf("xml_SEPROD_TELE2_ORDRSP_") > 0||f3[0].innerHTML.indexOf("xpp_IMM_Hi3G_COURIERSTATUS_") > 0) {
                     kidar = "Sweden - Boras";
                     solution = "//Ignore";
                 }
                 else if (f3[0].innerHTML.indexOf("xml_XPP-ALL_ALL_DISPATCHADVICE_") > 0) {
                     kidar = "Sweden - Boras";
                     solution = "//Informed to business";
+                }
+                else if (f3[0].innerHTML.indexOf("genxml_PTPROD_BPPTMSH_INVOICE_") > 0||f3[0].innerHTML.indexOf("genxml_PTPROD_STAPLESPT_INVOICE_") > 0) {
+                    kidar = "Portugal - Lisbon";
+                    solution = "//Processed";
                 }
                 else if (f3[0].innerHTML.indexOf("genxml_SEPROD_COMM2IG_INVOICE_") > 0) {
                     kidar = "Sweden - Boras";
@@ -125,7 +129,15 @@ async function run() {
                     kidar = "Sweden - Boras";
                     solution = "//Informed to xpp team";
                 }
-                else if (f3[0].innerHTML.indexOf("genxml_VODAFONEANNOVO_NLPROD_VFPURCHASEORD_") > 0 || f3[0].innerHTML.indexOf("Filename: [Error: 400]") > 0) {
+                else if (f3[0].innerHTML.indexOf("ff_VODAFONEUK_SI_SALESORDER_") > 0) {
+                    kidar = "UK Anovo - Norwich";
+                    solution = "//Processed";
+                }
+                else if (f3[0].innerHTML.indexOf("genxml_SKPROD_ZOUND_RMARECEIPT_") > 0) {
+                    kidar = "Slovakia - Lozorno";
+                    solution = "//Informed to business";
+                }
+                else if (f3[0].innerHTML.indexOf("genxml_VODAFONEANNOVO_NLPROD_VFPURCHASEORD_") > 0 || f3[0].innerHTML.indexOf("Filename:  [Error: 400]") > 0||f3[0].innerHTML.indexOf("xml_NLPROD__SHOPORDERSI_") > 0) {
                     kidar = "Netherlands - Tilburg";
                     solution = "//Ignore";
                 }
@@ -133,7 +145,7 @@ async function run() {
                     kidar = "Sweden - Boras";
                     solution = "//Processed";
                 }
-                else if (f3[0].innerHTML.indexOf("http_SKPROD_ZOUND_ORDRSP_") > 0) {
+                else if (f3[0].innerHTML.indexOf("http_SKPROD_ZOUND_ORDRSP_") > 0||f3[0].innerHTML.indexOf("http_SKPROD_ZOUND_ZOUNDSTATUS_") > 0) {
                     kidar = "Slovakia - Lozorno";
                     solution = "//Processed";
                 }
@@ -241,7 +253,7 @@ async function run() {
                     f12[41].setValue("workaround");
 
                 });
-                await page11.waitFor(5000);
+                await page11.waitFor(3000);
                 await page11.evaluate(() => {
                     var f13 = document.querySelectorAll("button.form_action_button.header.action_context.btn.btn-default");
                     f13[0].click();
