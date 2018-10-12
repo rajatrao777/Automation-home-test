@@ -21,7 +21,7 @@ async function run() {
       await page.click('input[type=submit]');
       await page.waitFor(5000);
       await page.click(PWD);
-      await page.keyboard.type("Rabbit7Rabbit");
+      await page.keyboard.type("");
       await page.click('input[type=submit]');
       //  await page.waitFor(5000);
       //     await page.click(BTN);
