@@ -4,7 +4,7 @@ async function run() {
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
     // const profile = 'rajatrao777'; 
-    await page.goto('https://ingrammicro.service-now.com/nav_to.do?uri=%2Fhome.do');
+    await page.goto('https://ingrammicro.service-now.com');
     await page.setViewport({ width: 1366, height: 768 });
     await page.waitFor(10000);
     /*const EMAIL = '#i0116';
@@ -58,13 +58,13 @@ async function run() {
         // console.log("1",document.querySelectorAll("a.linked.formlink"))
         // console.log("2",s[2].href)
         // console.log(s);
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < 5; i++) {
             arr[i] = s[i].href;
         }
         // console.log("inside",arr[i]);  
         return arr;
     });
-    for (var j = 0; j < 3; j++) {
+    for (var j = 0; j < 5; j++) {
         var pageflag = 0;
         // for(var i=0;i<11;i++){
 
@@ -141,11 +141,11 @@ async function run() {
                     kidar = "Netherlands - Tilburg";
                     solution = "//Ignore";
                 }
-                else if (f3[0].innerHTML.indexOf("xml_IMM_Hi3G_COURIERSTATUS_") > 0 || f3[0].innerHTML.indexOf("xml_IMM_Hi3G_DISPATCH-AAI_") > 0) {
+                else if (f3[0].innerHTML.indexOf("xml_IMM_Hi3G_COURIERSTATUS_") > 0 || f3[0].innerHTML.indexOf("xml_IMM_Hi3G_DISPATCH-AAI_") > 0||f3[0].innerHTML.indexOf("Error in getting PORECEIPT info from XPP") > 0) {
                     kidar = "Sweden - Boras";
                     solution = "//Processed";
                 }
-                else if (f3[0].innerHTML.indexOf("http_SKPROD_ZOUND_ORDRSP_") > 0||f3[0].innerHTML.indexOf("http_SKPROD_ZOUND_ZOUNDSTATUS_") > 0) {
+                else if (f3[0].innerHTML.indexOf("http_SKPROD_ZOUND_ORDRSP_") > 0||f3[0].innerHTML.indexOf("http_SKPROD_ZOUND_ZOUNDSTATUS_") > 0||f3[0].innerHTML.indexOf("xml_SKPROD_KAZAM_SHOPORDERSI_") > 0) {
                     kidar = "Slovakia - Lozorno";
                     solution = "//Processed";
                 }
