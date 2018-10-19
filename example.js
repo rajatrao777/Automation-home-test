@@ -36,7 +36,7 @@ async function run() {
     // await page.waitForNavigation();
     //  const queue = "div[id='c13406700a0a3c1201579d1d0bc87b7f']";
     //  await page.evaluate((queue)=>{
-    await page.waitFor(4000);
+    await page.waitFor(6000);
 
     // document.querySelectorAll("a.linked.formlink");
     // await page.waitForSelector('a[href$="short_description"]');  
@@ -58,13 +58,13 @@ async function run() {
         // console.log("1",document.querySelectorAll("a.linked.formlink"))
         // console.log("2",s[2].href)
         // console.log(s);
-        for (var i = 0; i < 5; i++) {
+        for (var i = 2; i < 7; i++) {
             arr[i] = s[i].href;
         }
         // console.log("inside",arr[i]);  
         return arr;
     });
-    for (var j = 0; j < 5; j++) {
+    for (var j = 2; j < 7; j++) {
         var pageflag = 0;
         // for(var i=0;i<11;i++){
 
@@ -117,9 +117,13 @@ async function run() {
                     kidar = "Sweden - Boras";
                     solution = "//Informed to business";
                 }
-                else if (f3[0].innerHTML.indexOf("genxml_PTPROD_BPPTMSH_INVOICE_") > 0||f3[0].innerHTML.indexOf("genxml_PTPROD_STAPLESPT_INVOICE_") > 0) {
+                else if (f3[0].innerHTML.indexOf("genxml_PTPROD_BPPTMSH_INVOICE_") > 0||f3[0].innerHTML.indexOf("genxml_PTPROD_STAPLESPT_INVOICE_") > 0||f3[0].innerHTML.indexOf("genxml_PTPROD_AUCHANPT_INVOICE_") > 0) {
                     kidar = "Portugal - Lisbon";
                     solution = "//Processed";
+                }
+                else if (f3[0].innerHTML.indexOf("new charge type. Map change required...!!!") > 0){
+                    kidar = "Portugal - Lisbon";
+                    solution = "//Ignore";
                 }
                 else if (f3[0].innerHTML.indexOf("genxml_SEPROD_COMM2IG_INVOICE_") > 0) {
                     kidar = "Sweden - Boras";
@@ -137,11 +141,11 @@ async function run() {
                     kidar = "Slovakia - Lozorno";
                     solution = "//Informed to business";
                 }
-                else if (f3[0].innerHTML.indexOf("genxml_VODAFONEANNOVO_NLPROD_VFPURCHASEORD_") > 0 || f3[0].innerHTML.indexOf("Filename:  [Error: 400]") > 0||f3[0].innerHTML.indexOf("xml_NLPROD__SHOPORDERSI_") > 0) {
+                else if (f3[0].innerHTML.indexOf("genxml_VODAFONEANNOVO_NLPROD_VFPURCHASEORD_") > 0 || f3[0].innerHTML.indexOf("Filename:  [Error: 400]") > 0||f3[0].innerHTML.indexOf("xml_NLPROD__SHOPORDERSI_") > 0||f3[0].innerHTML.indexOf("Error: 500 or 404 ERROR") > 0) {
                     kidar = "Netherlands - Tilburg";
                     solution = "//Ignore";
                 }
-                else if (f3[0].innerHTML.indexOf("xml_IMM_Hi3G_COURIERSTATUS_") > 0 || f3[0].innerHTML.indexOf("xml_IMM_Hi3G_DISPATCH-AAI_") > 0||f3[0].innerHTML.indexOf("Error in getting PORECEIPT info from XPP") > 0) {
+                else if (f3[0].innerHTML.indexOf("xml_IMM_Hi3G_COURIERSTATUS_") > 0 || f3[0].innerHTML.indexOf("xml_IMM_Hi3G_DISPATCH-AAI_") > 0||f3[0].innerHTML.indexOf("Error in getting PORECEIPT info from XPP") > 0||f3[0].innerHTML.indexOf("http_SEPROD_TELENOR_DESPATCHADVISE_") > 0) {
                     kidar = "Sweden - Boras";
                     solution = "//Processed";
                 }
