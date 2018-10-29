@@ -58,13 +58,13 @@ async function run() {
         // console.log("1",document.querySelectorAll("a.linked.formlink"))
         // console.log("2",s[2].href)
         // console.log(s);
-        for (var i =4; i < 10; i++) {
+        for (var i =0; i < 10; i++) {
             arr[i] = s[i].href;
         }
         // console.log("inside",arr[i]);  
         return arr;
     });
-    for (var j =4; j < 10; j++) {
+    for (var j =0; j < 10; j++) {
         var pageflag = 0;
         // for(var i=0;i<11;i++){
 
@@ -97,7 +97,7 @@ async function run() {
             return pageflag;
         });
         console.log(pageflag, j);
-        var kidar = "";
+        var impact = "";
         var solution = "";
 
         if (pageflag == 1) {
@@ -106,72 +106,76 @@ async function run() {
                 var f3 = document.querySelectorAll("span.sn-widget-textblock-body.sn-widget-textblock-body_formatted");
                 console.log("pohcha");
                 if (f3[0].innerHTML.indexOf("genxml_SI_EURONICS_PRICELIST_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_ADVANCEAS_CUSTOMERINFO_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_ELKJOP1-NO_PRICELIST_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_DKCUST_CUSTOMERINFO_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_TELERING_CUSTOMERINFO_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_EXPERTNO_CUSTOMERINFO_") > 0 ||f3[0].innerHTML.indexOf("genxml_SI_EXPERTFI_CUSTOMERINFO_") > 0) {
-                    kidar = "Sweden - Boras";
+                    impact = "Sweden - Boras";
                     solution = "//Restarted";
                 }
                 else if (f3[0].innerHTML.indexOf("xml_SEPROD_TELE2_COLINERESERVED1_") > 0 || f3[0].innerHTML.indexOf("xml_XPP-SE100_TELE2_COURIERSTATUS_") > 0 || f3[0].innerHTML.indexOf("xml_SEPROD_TELE2_ORDRSP_") > 0||f3[0].innerHTML.indexOf("xpp_IMM_Hi3G_COURIERSTATUS_") > 0||f3[0].innerHTML.indexOf("genxml_SEPROD_TELE2_DESPATCHADVISE_") > 0) {
-                    kidar = "Sweden - Boras";
+                    impact = "Sweden - Boras";
                     solution = "//Ignore";
                 }
                 else if (f3[0].innerHTML.indexOf("xml_XPP-ALL_ALL_DISPATCHADVICE_") > 0) {
-                    kidar = "Sweden - Boras";
+                    impact = "Sweden - Boras";
                     solution = "//Informed to business";
                 }
-                else if (f3[0].innerHTML.indexOf("genxml_PTPROD_BPPTMSH_INVOICE_") > 0||f3[0].innerHTML.indexOf("genxml_PTPROD_STAPLESPT_INVOICE_") > 0||f3[0].innerHTML.indexOf("genxml_PTPROD_AUCHANPT_INVOICE_") > 0) {
-                    kidar = "Portugal - Lisbon";
+                else if (f3[0].innerHTML.indexOf("genxml_PTPROD_BPPTMSH_INVOICE_") > 0||f3[0].innerHTML.indexOf("genxml_PTPROD_STAPLESPT_INVOICE_") > 0||f3[0].innerHTML.indexOf("genxml_PTPROD_AUCHANPT_INVOICE_") > 0||f3[0].innerHTML.indexOf("genxml_PTPROD_RADPOP_INVOICE_") > 0) {
+                    impact = "Portugal - Lisbon";
                     solution = "//Processed";
                 }
                 else if (f3[0].innerHTML.indexOf("new charge type. Map change required...!!!") > 0){
-                    kidar = "Portugal - Lisbon";
+                    impact = "Portugal - Lisbon";
                     solution = "//Ignore";
                 }
                 else if (f3[0].innerHTML.indexOf("genxml_SEPROD_COMM2IG_INVOICE_") > 0) {
-                    kidar = "Sweden - Boras";
+                    impact = "Sweden - Boras";
                     solution = "//Informed to xpp team";
                 }
                 else if (f3[0].innerHTML.indexOf("xml_SEPROD_TELE2-NAV_PURCHASEORDERRECEIPT_") > 0 || f3[0].innerHTML.indexOf("XPP Error: Purchase order line was not processed in this instance of XPP for Order No") > 0) {
-                    kidar = "Sweden - Boras";
+                    impact = "Sweden - Boras";
                     solution = "//Informed to xpp team";
                 }
                 else if (f3[0].innerHTML.indexOf("ff_VODAFONEUK_SI_SALESORDER_") > 0) {
-                    kidar = "UK Anovo - Norwich";
+                    impact = "UK Anovo - Norwich";
                     solution = "//Processed";
                 }
                 else if (f3[0].innerHTML.indexOf("genxml_SKPROD_ZOUND_RMARECEIPT_") > 0) {
-                    kidar = "Slovakia - Lozorno";
+                    impact = "Slovakia - Lozorno";
                     solution = "//Informed to business";
                 }
+                else if (f3[0].innerHTML.indexOf("ff_SAPSTP_EPIC_MATMAS_") > 0) {
+                    impact = "Slovakia - Lozorno";
+                    solution = "//Ignore";
+                }
                 else if (f3[0].innerHTML.indexOf("xml_NLPROD_INTELEMATICS-AA_SHOPORDERSI_") > 0) {
-                    kidar = "Netherlands - Tilburg";
+                    impact = "Netherlands - Tilburg";
                     solution = "//Ignore";
                 }
                 else if (f3[0].innerHTML.indexOf("genxml_VODAFONEANNOVO_NLPROD_VFPURCHASEORD_") > 0 || f3[0].innerHTML.indexOf("Filename:  [Error: 400]") > 0||f3[0].innerHTML.indexOf("xml_NLPROD__SHOPORDERSI_") > 0||f3[0].innerHTML.indexOf("Error: 500 or 404 ERROR") > 0) {
-                    kidar = "Netherlands - Tilburg";
+                    impact = "Netherlands - Tilburg";
                     solution = "//Ignore";
                 }
                 else if (f3[0].innerHTML.indexOf("xml_IMM_Hi3G_COURIERSTATUS_") > 0 || f3[0].innerHTML.indexOf("xml_IMM_Hi3G_DISPATCH-AAI_") > 0||f3[0].innerHTML.indexOf("Error in getting PORECEIPT info from XPP") > 0||f3[0].innerHTML.indexOf("http_SEPROD_TELENOR_DESPATCHADVISE_") > 0) {
-                    kidar = "Sweden - Boras";
+                    impact = "Sweden - Boras";
                     solution = "//Processed";
                 }
                 else if (f3[0].innerHTML.indexOf("http_SKPROD_ZOUND_ORDRSP_") > 0||f3[0].innerHTML.indexOf("http_SKPROD_ZOUND_ZOUNDSTATUS_") > 0||f3[0].innerHTML.indexOf("xml_SKPROD_KAZAM_SHOPORDERSI_") > 0) {
-                    kidar = "Slovakia - Lozorno";
+                    impact = "Slovakia - Lozorno";
                     solution = "//Processed";
                 }
                 else if (f3[0].innerHTML.indexOf("genxml_SEPROD_COMM2IG_INVOICE_") > 0 && f3[0].innerHTML.indexOf("No files to collect") > 0) {
-                    kidar = "Sweden - Boras";
+                    impact = "Sweden - Boras";
                     solution = "//Informed to XPP Team";
                 }
                 else {
                     // await page11.close();
                     // break;
-                    kidar = "nahi";
+                    impact = "nahi";
                     solution = "nahi";
                 }
 
-                arr4[0] = kidar;
+                arr4[0] = impact;
                 arr4[1] = solution;
                 // console.log(arr4[0],arr4[1]);
-                // console.log("pehle",kidar);
+                // console.log("pehle",impact);
                 return arr4;
             });
 
