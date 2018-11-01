@@ -58,13 +58,13 @@ async function run() {
         // console.log("1",document.querySelectorAll("a.linked.formlink"))
         // console.log("2",s[2].href)
         // console.log(s);
-        for (var i =4; i < 10; i++) {
+        for (var i =9; i < 15; i++) {
             arr[i] = s[i].href;
         }
         // console.log("inside",arr[i]);  
         return arr;
     });
-    for (var j =4; j < 10; j++) {
+    for (var j =9; j < 15; j++) {
         var pageflag = 0;
         // for(var i=0;i<11;i++){
 
@@ -179,7 +179,7 @@ async function run() {
                 return arr4;
             });
 
-            console.log("badme",arr5[0],arr5[1]);
+            console.log("impact",arr5[0],"solution",arr5[1]);
             if (arr5[0] == "nahi") {
                 await page11.close();
 
@@ -231,14 +231,14 @@ async function run() {
                 });
                 //console.log("just",arr5[1]);
                 
-                await page11.evaluate((jugad) => {
+                await page11.evaluate((proposed_solution) => {
                     var f9 = document.querySelectorAll(".form-control");
                     // f4[9].click();
                     // f4[9].setValue("Application");
                     //var proposed=arr5[1];
                    // console.log("just badme",proposed);
                     f9[39].click();
-                    f9[39].setValue(jugad);
+                    f9[39].setValue(proposed_solution);
                 },arr5[1]);
 
                 await page11.waitFor(3000);
