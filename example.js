@@ -58,13 +58,13 @@ async function run() {
         // console.log("1",document.querySelectorAll("a.linked.formlink"))
         // console.log("2",s[2].href)
         // console.log(s);
-        for (var i =0; i < 20; i++) {
+        for (var i =5; i < 15; i++) {
             arr[i] = s[i].href;
         }
         // console.log("inside",arr[i]);  
         return arr;
     });
-    for (var j =0; j < 20; j++) {
+    for (var j =5; j < 15; j++) {
         var pageflag = 0;
         // for(var i=0;i<11;i++){
 
@@ -141,7 +141,7 @@ async function run() {
                     impact = "Slovakia - Lozorno";
                     solution = "//Informed to business";
                 }
-                else if (f3[0].innerHTML.indexOf("ff_SAPSTP_EPIC_MATMAS_") > 0) {
+                else if (f3[0].innerHTML.indexOf("ff_SAPSTP_EPIC_MATMAS_") > 0||f3[0].innerHTML.indexOf("BP.IFS.ShopOrder.clsShopOrderF.funcCreateBulkShopOrder") > 0) {
                     impact = "Slovakia - Lozorno";
                     solution = "//Ignore";
                 }
