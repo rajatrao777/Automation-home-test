@@ -91,7 +91,7 @@ async function run() {
                 pageflag = 1;
             }
             else {
-                console.log("failure");
+                console.log("failed");
                 pageflag = 0;
             }
             return pageflag;
@@ -104,7 +104,7 @@ async function run() {
             var arr5 = await page11.evaluate(() => {
                 var arr4 = [];
                 var f3 = document.querySelectorAll("span.sn-widget-textblock-body.sn-widget-textblock-body_formatted");
-                console.log("pohcha");
+                console.log("reached");
                 if (f3[0].innerHTML.indexOf("genxml_SI_EURONICS_PRICELIST_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_ADVANCEAS_CUSTOMERINFO_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_ELKJOP1-NO_PRICELIST_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_DKCUST_CUSTOMERINFO_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_TELERING_CUSTOMERINFO_") > 0 || f3[0].innerHTML.indexOf("genxml_SI_EXPERTNO_CUSTOMERINFO_") > 0 ||f3[0].innerHTML.indexOf("genxml_SI_EXPERTFI_CUSTOMERINFO_") > 0) {
                     impact = "Sweden - Boras";
                     solution = "//Restarted";
@@ -141,7 +141,7 @@ async function run() {
                     impact = "Slovakia - Lozorno";
                     solution = "//Informed to business";
                 }
-                else if (f3[0].innerHTML.indexOf("ff_SAPSTP_EPIC_MATMAS_") > 0||f3[0].innerHTML.indexOf("BP.IFS.ShopOrder.clsShopOrderF.funcCreateBulkShopOrder") > 0) {
+                else if (f3[0].innerHTML.indexOf("ff_SAPSTP_EPIC_MATMAS_") > 0) {
                     impact = "Slovakia - Lozorno";
                     solution = "//Ignore";
                 }
@@ -215,12 +215,12 @@ async function run() {
                     // f4[10].click();
                     // f4[10].setValue("Request");
                 });
-                await page11.waitFor(3000);
+                await page11.waitFor(2000);
                 await page11.evaluate(() => {
                     var f7 = document.querySelectorAll("button.form_action_button.header.action_context.btn.btn-default");
                     f7[0].click();
                 });
-                await page11.waitFor(5000);
+                await page11.waitFor(3000);
 
                 await page11.evaluate(() => {
                     var f8 = document.querySelectorAll(".form-control");
@@ -256,7 +256,7 @@ async function run() {
                     var f11 = document.querySelectorAll("button.form_action_button.header.action_context.btn.btn-default");
                     f11[5].click();
                 });
-                await page11.waitFor(5000);
+                await page11.waitFor(3000);
                 await page11.evaluate(() => {
                     var f12 = document.querySelectorAll(".form-control");
                     // f4[9].click();
@@ -265,17 +265,17 @@ async function run() {
                     f12[41].setValue("workaround");
 
                 });
-                await page11.waitFor(3000);
+                await page11.waitFor(2000);
                 await page11.evaluate(() => {
                     var f13 = document.querySelectorAll("button.form_action_button.header.action_context.btn.btn-default");
                     f13[0].click();
                 });
-                await page11.waitFor(5000);
+                await page11.waitFor(3000);
                 await page11.close();
             }
         }
         else {
-            console.log("failure1");
+            console.log("failed");
             await page11.close();
         }
     }
