@@ -58,13 +58,13 @@ async function run() {
         // console.log("1",document.querySelectorAll("a.linked.formlink"))
         // console.log("2",s[2].href)
         // console.log(s);
-        for (var i =5; i < 15; i++) {
+        for (var i =0; i < 20; i++) {
             arr[i] = s[i].href;
         }
         // console.log("inside",arr[i]);  
         return arr;
     });
-    for (var j =5; j < 15; j++) {
+    for (var j =0; j < 20; j++) {
         var pageflag = 0;
         // for(var i=0;i<11;i++){
 
@@ -109,7 +109,7 @@ async function run() {
                     impact = "Sweden - Boras";
                     solution = "//Restarted";
                 }
-                else if (f3[0].innerHTML.indexOf("xml_SEPROD_TELE2_COLINERESERVED1_") > 0 || f3[0].innerHTML.indexOf("xml_XPP-SE100_TELE2_COURIERSTATUS_") > 0 || f3[0].innerHTML.indexOf("xml_SEPROD_TELE2_ORDRSP_") > 0||f3[0].innerHTML.indexOf("xpp_IMM_Hi3G_COURIERSTATUS_") > 0||f3[0].innerHTML.indexOf("genxml_SEPROD_TELE2_DESPATCHADVISE_") > 0||f3[0].innerHTML.indexOf("Error: XPP Error: Not all Products found in XPP") > 0) {
+                else if (f3[0].innerHTML.indexOf("xml_SEPROD_TELE2_COLINERESERVED1_") > 0 || f3[0].innerHTML.indexOf("xml_XPP-SE100_TELE2_COURIERSTATUS_") > 0 || f3[0].innerHTML.indexOf("xml_SEPROD_TELE2_ORDRSP_") > 0||f3[0].innerHTML.indexOf("xpp_IMM_Hi3G_COURIERSTATUS_") > 0||f3[0].innerHTML.indexOf("genxml_SEPROD_TELE2_DESPATCHADVISE_") > 0||f3[0].innerHTML.indexOf("Error: XPP Error: Not all Products found in XPP") > 0||f3[0].innerHTML.indexOf("xpp_IMM_Hi3G_INVENTORY_") > 0) {
                     impact = "Sweden - Boras";
                     solution = "//Ignore";
                 }
