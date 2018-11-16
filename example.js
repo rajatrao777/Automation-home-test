@@ -58,13 +58,13 @@ async function run() {
         // console.log("1",document.querySelectorAll("a.linked.formlink"))
         // console.log("2",s[2].href)
         // console.log(s);
-        for (var i =0; i < 12; i++) {
+        for (var i =0; i < 7; i++) {
             arr[i] = s[i].href;
         }
         // console.log("inside",arr[i]);  
         return arr;
     });
-    for (var j =0; j < 12; j++) {
+    for (var j =0; j < 7; j++) {
         var pageflag = 0;
         // for(var i=0;i<11;i++){
 
