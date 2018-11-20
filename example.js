@@ -141,6 +141,10 @@ async function run() {
                     impact = "Slovakia - Lozorno";
                     solution = "//Informed to business";
                 }
+                else if (f3[0].innerHTML.indexOf("genxml_SEPROD_MSHSE_INVOICE_") > 0) {
+                    impact = "Sweden - Boras";
+                    solution = "//Informed to business";
+                }
                 else if (f3[0].innerHTML.indexOf("ff_SAPSTP_EPIC_MATMAS_") > 0||f3[0].innerHTML.indexOf("BP.IFS.ShopOrder.clsShopOrderF.funcCreateBulkShopOrder") > 0) {
                     impact = "Slovakia - Lozorno";
                     solution = "//Ignore";
