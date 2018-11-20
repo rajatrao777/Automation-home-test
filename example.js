@@ -109,7 +109,7 @@ async function run() {
                     impact = "Sweden - Boras";
                     solution = "//Restarted";
                 }
-                else if (f3[0].innerHTML.indexOf("xml_SEPROD_TELE2_COLINERESERVED1_") > 0 || f3[0].innerHTML.indexOf("xml_XPP-SE100_TELE2_COURIERSTATUS_") > 0 || f3[0].innerHTML.indexOf("xml_SEPROD_TELE2_ORDRSP_") > 0||f3[0].innerHTML.indexOf("xpp_IMM_Hi3G_COURIERSTATUS_") > 0||f3[0].innerHTML.indexOf("genxml_SEPROD_TELE2_DESPATCHADVISE_") > 0||f3[0].innerHTML.indexOf("Error: XPP Error: Not all Products found in XPP") > 0||f3[0].innerHTML.indexOf("xpp_IMM_Hi3G_INVENTORY_") > 0) {
+                else if (f3[0].innerHTML.indexOf("xml_SEPROD_TELE2_COLINERESERVED1_") > 0 || f3[0].innerHTML.indexOf("xml_XPP-SE100_TELE2_COURIERSTATUS_") > 0 || f3[0].innerHTML.indexOf("xml_SEPROD_TELE2_ORDRSP_") > 0||f3[0].innerHTML.indexOf("xpp_IMM_Hi3G_COURIERSTATUS_") > 0||f3[0].innerHTML.indexOf("genxml_SEPROD_TELE2_DESPATCHADVISE_") > 0||f3[0].innerHTML.indexOf("Error: XPP Error: Not all Products found in XPP") > 0||f3[0].innerHTML.indexOf("xpp_IMM_Hi3G_INVENTORY_") > 0||f3[0].innerHTML.indexOf("xml_IMM_Hi3G_DISPATCH_") > 0) {
                     impact = "Sweden - Boras";
                     solution = "//Ignore";
                 }
@@ -195,7 +195,7 @@ async function run() {
                     // return button15;
                 });
 
-                await page11.waitFor(2000);
+                await page11.waitFor(3000);
                 await page11.evaluate(() => {
                     var f5 = document.querySelectorAll(".form-control");
                     f5[32].click();
